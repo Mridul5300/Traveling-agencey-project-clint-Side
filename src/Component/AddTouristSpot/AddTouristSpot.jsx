@@ -1,8 +1,9 @@
+import { useContext } from "react";
+import { AuthContex } from "../AuthProvider/AuthProvider";
 
 
 const AddTouristSpot = () => {
-
-
+     const {user}=useContext(AuthContex)
      const handleAddCoffee = event => {
           event.preventDefault();
 
@@ -10,8 +11,8 @@ const AddTouristSpot = () => {
           const form = event.target;
 
 
-          const name = form.name.value;
-          const email = form.email.value;
+          const name = user?.displayName;
+          const email = user?.email;
           const cuntryname = form.cuntryname.value;
           const spotname = form.spotname.value;
           const averagecost = form.averagecost.value;
@@ -31,11 +32,11 @@ const AddTouristSpot = () => {
                          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3  mx-auto ">
                               <div className="col-span-full sm:col-span-3 ">
                                    <label htmlFor="firstname" className="text-sm">Name</label>
-                                   <input name="name" type="text" placeholder="Enter your spot name" className=" input input-bordered w-full text-black border-gray-300" />
+                                   <input name="name" defaultValue={user?.displayName} type="text" placeholder="Enter your spot name" className=" input input-bordered w-full text-black border-gray-300" />
                               </div>
                               <div className="col-span-full sm:col-span-3">
                                    <label htmlFor="email" className="text-sm">Email</label>
-                                   <input name="email" type="email" placeholder="Enter Your Mail" className="  input input-bordered w-full text-black  border-gray-300" />
+                                   <input name="email" defaultValue={user?.email} type="email" placeholder="Enter Your Mail" className="  input input-bordered w-full text-black  border-gray-300" />
                               </div>
                               <div className="col-span-full sm:col-span-3">
                                    <label htmlFor="Country Name" className="text-sm">Country Name</label>
@@ -104,3 +105,4 @@ export default AddTouristSpot;
 // e. travel_time
 // f. seasonality
 // g. “View season” button – will redirect to the “View season Page”
+// {class.slice(o,6).map}

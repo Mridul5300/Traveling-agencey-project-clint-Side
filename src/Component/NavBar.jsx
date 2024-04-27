@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "./AuthProvider/AuthProvider";
 
 
 const NavBar = () => {
+     // const {theme,setTheme}=useState("light")
+     // const handleToggle = (e) =>{
+     //      if(e.target.value)
+     // }
           const { logout,user} = useContext(AuthContex)
      const Navlinks = <>
 
@@ -17,13 +21,13 @@ const NavBar = () => {
      </>
      return (
           <div>
-               <div className="navbar bg-base-100">
+               <div className="navbar mt-2 bg-[#D2B48C] bg-opacity-15 rounded-md">
                     <div className="navbar-start">
                          <div className="dropdown">
-                              <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                              <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                               </div>
-                              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[50] p-2 shadow bg-base-100 rounded-box w-52">
                                    {Navlinks}
                               </ul>
                          </div>
@@ -47,12 +51,12 @@ const NavBar = () => {
                          </div>
                     )
                      : (
-                         <div className="space-x-5">
+                         <div className="flex space-x-5">
                               <Link to='/register'>
-                              <button className="btn btn-ghost text-black text-lg md:text-xl  hover md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-[#D2B48C]">Register</button>
+                              <button className="btn btn-ghost text-black text-lg md:text-xl  hover md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-[#D2B48C] bg-opacity-10">Register</button>
                          </Link>
                               <Link to='/login'>
-                              <button className="btn btn-ghost text-black text-lg md:text-xl  hover md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-[#D2B48C]">Login</button>
+                              <button className="btn btn-ghost text-black text-lg md:text-xl  hover md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-[#D2B48C] bg-opacity-10">Login</button>
                          </Link>
                          
                          </div>
