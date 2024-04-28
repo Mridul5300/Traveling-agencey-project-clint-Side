@@ -18,11 +18,13 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: () => fetch ('http://localhost:5000/card')
       },
       {
         path:"/all spot",
         element:<AllTouristSpot></AllTouristSpot>,
+        loader: () => fetch ('http://localhost:5000/card')
       },
       {
         path:'/add spot',

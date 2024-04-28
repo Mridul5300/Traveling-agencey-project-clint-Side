@@ -1,7 +1,7 @@
 
 
-const AllTouristCard = ({card}) => {
-          const{ name, email, cuntryname, spotname, averagecost, season, photo,traveltime,totaVisitors,description,location}=card;
+const HomeCard = ({card}) => {
+     const{ name, email, cuntryname, spotname, averagecost, season, photo,traveltime,totaVisitors,description,location}=card;
      return (
           <div>
                <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -18,4 +18,4 @@ const AllTouristCard = ({card}) => {
      );
 };
 
-export default AllTouristCard;
+export default HomeCard;
