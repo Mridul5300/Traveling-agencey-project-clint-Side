@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { AuthContex } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 const Registar = () => {
      const navigate = useNavigate();
     const { creatUser,logout} = useContext(AuthContex);
@@ -32,13 +33,24 @@ const Registar = () => {
         creatUser(email, Password)
             .then(result => {
                 console.log(result);
-               
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User Added Succesfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
                 setRegistrationSuccess(true);
                 logout()
             })
             .catch(error => {
                 console.log(error);
-                 setError(error.message);
+                //  setError(error.message);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Not Registation',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                  })
                
             });
     };

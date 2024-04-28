@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContex } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddTouristSpot = () => {
@@ -12,15 +13,42 @@ const AddTouristSpot = () => {
 
 
           const name = user?.displayName;
+          console.log(name);
           const email = user?.email;
           const cuntryname = form.cuntryname.value;
           const spotname = form.spotname.value;
           const averagecost = form.averagecost.value;
           const season = form.season.value;
           const photo = form.photo.value;
-
-          const AddNewSpot = { name, email, cuntryname, spotname, averagecost, season, photo }
+          const  traveltime =  form.traveltime.value;
+          const totaVisitors = form.totaVisitors.value;
+          const description = form.description.value;
+          const location = form.location.value;
+          const AddNewSpot = { name, email, cuntryname, spotname, averagecost, season, photo,traveltime,totaVisitors,description,location}
           console.log(AddNewSpot);
+
+
+
+          // send data to the user 
+          fetch('http://localhost:5000/card', {
+               method:'POST',
+               headers:{
+                    'content-type':'application/json'
+               },
+               body:JSON.stringify(AddNewSpot)
+          })
+          .then(res => res.json())
+          .then(data => {
+               console.log(data);
+               if(data.insertedId){
+                    Swal.fire({
+                         title: 'Success!',
+                         text: 'User Added Succesfully',
+                         icon: 'success',
+                         confirmButtonText: 'Cool'
+                       })
+               }
+          })
      }
      return (
           <div>
@@ -73,8 +101,8 @@ const AddTouristSpot = () => {
                          </div>
                          </div>
                          <div>
-                              <caption className="mt-3">Description</caption>
-                         <textarea placeholder="Description" className="textarea mt-6 textarea-bordered textarea-lg w-5/6" ></textarea>
+                         <h2 className="mt-3">Description</h2>
+                         <textarea type="text" name='description' placeholder="Description" className="textarea mt-6 textarea-bordered textarea-lg w-5/6" ></textarea>
                          </div>
                          <input type="submit" value="Add Spot" className="btn btn-block bg-[#D2B48C] mt-5" />
                     </form>

@@ -4,14 +4,13 @@ import { AuthContex } from "./AuthProvider/AuthProvider";
 
 
 const NavBar = () => {
-     const {theme,setTheme}=useState("light")
+     const {theme,setTheme}=useState('light')
 
      useEffect( () => {
 
           localStorage.setItem('theme',theme)
           const localTheme = localStorage.getItem('theme')
           document.querySelector('html').setAttribute('data-theme',localTheme)
-
      },[theme])
      const handleToggle = e =>{
           if(e.target.checked){
