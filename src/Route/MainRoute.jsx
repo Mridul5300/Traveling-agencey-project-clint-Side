@@ -8,6 +8,7 @@ import MyList from "../Component/MyList/MyList";
 import Login from "../Component/Login/Login";
 import Error from "../Component/Error/Error";
 import Upadate from "../Component/MyList/Upadate";
+import PrivetRoute from "../Component/Privet Route/PrivetRoute";
 
 
 
@@ -24,12 +25,12 @@ const router = createBrowserRouter([
       },
       {
         path:"allspot",
-        element:<AllTouristSpot></AllTouristSpot>,
+        element:<PrivetRoute><AllTouristSpot></AllTouristSpot></PrivetRoute>,
         loader: () => fetch ('http://localhost:5000/card')
       },
       {
         path:'addspot',
-        element:<AddTouristSpot></AddTouristSpot>,
+        element:<PrivetRoute><AddTouristSpot></AddTouristSpot></PrivetRoute>
       },
       {
         path:"register",
@@ -37,16 +38,16 @@ const router = createBrowserRouter([
       },
       {
         path:'mylist',
-        element:<MyList></MyList>
+        element:<PrivetRoute><MyList></MyList></PrivetRoute>,
       },
       {
         path:'login',
         element:<Login></Login>
       },
       {
-        path:'updatedata/:id',
-        element:<Upadate></Upadate>,
-        // loader:({params}) => fetch(`http://localhost:5000/card/${params.id}`)
+        path:'/updatedata/:id',
+        element:<PrivetRoute><Upadate></Upadate></PrivetRoute>,
+        loader:({params}) => fetch(`http://localhost:5000/cards/${params.id}`)
       }
     ]
   },

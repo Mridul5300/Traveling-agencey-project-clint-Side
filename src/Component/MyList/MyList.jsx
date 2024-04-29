@@ -22,7 +22,7 @@ const MyList = () => {
           console.log(_id);
           Swal.fire({
                title: "Are you sure?",
-               text: "You won't be able to revert this!",
+               text: "You want to Deleted this Card!",
                icon: "warning",
                showCancelButton: true,
                confirmButtonColor: "#3085d6",
@@ -30,12 +30,6 @@ const MyList = () => {
                confirmButtonText: "Yes, delete it!"
              }).then((result) => {
                if (result.isConfirmed) {
-               //   Swal.fire({
-               //     title: "Deleted!",
-               //     text: "Your file has been deleted.",
-               //     icon: "success"
-               //   });
-               // console.log('dellet cofirmed');
                fetch(`http://localhost:5000/card/${_id}`, {
                     method:'DELETE'
                })
@@ -48,8 +42,11 @@ const MyList = () => {
                    text: "Your card has been deleted.",
                    icon: "success"
                  });
+
+                 const remaining = details.filter(d => d._id !== _id)
+                 setDetails(remaining)
                     }
-               })
+               });
                }
              });
 
@@ -95,7 +92,7 @@ const MyList = () => {
                                         </td>
                                         <td>{detail.averagecost}</td>
                                         <th>
-                                             <Link  to={`/updatedata/:${detail._id}`}>
+                                             <Link  to={`/updatedata/${detail._id}`}>
                                              <button className="btn btn-link btn-md ">Update</button>
                                              </Link> 
                                              <button

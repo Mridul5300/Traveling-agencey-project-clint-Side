@@ -60,11 +60,11 @@ const AddTouristSpot = () => {
                          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3  mx-auto ">
                               <div className="col-span-full sm:col-span-3 ">
                                    <label htmlFor="firstname" className="text-sm">Name</label>
-                                   <input name="name" defaultValue={user?.displayName} type="text" placeholder="Enter your spot name" className=" input input-bordered w-full text-black border-gray-300" />
+                                   <input name="name" readOnly defaultValue={user?.displayName} type="text" placeholder="Enter your spot name" className=" input input-bordered w-full text-black border-gray-300" />
                               </div>
                               <div className="col-span-full sm:col-span-3">
                                    <label htmlFor="email" className="text-sm">Email</label>
-                                   <input name="email" defaultValue={user?.email} type="email" placeholder="Enter Your Mail" className="  input input-bordered w-full text-black  border-gray-300" />
+                                   <input name="email" readOnly defaultValue={user?.email} type="email" placeholder="Enter Your Mail" className="  input input-bordered w-full text-black  border-gray-300" />
                               </div>
                               <div className="col-span-full sm:col-span-3">
                                    <label htmlFor="Country Name" className="text-sm">Country Name</label>

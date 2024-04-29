@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
      const [reload, setReload]=useState(false)
     const [user, setUser]= useState(null)
     const [loading,setLoading]=useState(true)
+    console.log("aaa",loading);
 //     console.log(user);
      // creatuser
      const creatUser = (email, password) => {
@@ -37,11 +38,11 @@ const AuthProvider = ({children}) => {
      return signInWithPopup(auth, gitHubProvider)
    }
 // Update Profile
-const upDateUser = (name,image) => {
-     return updateProfile(auth.currentUser, {
-          displayName: name, photoURL: image
-        })     
-}
+// const upDateUser = (name,image) => {
+//      return updateProfile(auth.currentUser, {
+//           displayName: name, photoURL: image
+//         })     
+// }
 
 // logout
 const logout = () => {
@@ -71,7 +72,6 @@ const logout = () => {
           googleLogin,
           gitHubLogin,
           logout,
-          upDateUser,
           setReload
           
      }
