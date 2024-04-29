@@ -7,6 +7,7 @@ import Registar from "../Component/Register/Registar";
 import MyList from "../Component/MyList/MyList";
 import Login from "../Component/Login/Login";
 import Error from "../Component/Error/Error";
+import Upadate from "../Component/MyList/Upadate";
 
 
 
@@ -22,25 +23,30 @@ const router = createBrowserRouter([
         loader: () => fetch ('http://localhost:5000/card')
       },
       {
-        path:"/all spot",
+        path:"allspot",
         element:<AllTouristSpot></AllTouristSpot>,
         loader: () => fetch ('http://localhost:5000/card')
       },
       {
-        path:'/add spot',
+        path:'addspot',
         element:<AddTouristSpot></AddTouristSpot>,
       },
       {
-        path:"/register",
+        path:"register",
         element:<Registar></Registar>
       },
       {
-        path:'/my list',
+        path:'mylist',
         element:<MyList></MyList>
       },
       {
-        path:'/login',
+        path:'login',
         element:<Login></Login>
+      },
+      {
+        path:'updatedata/:id',
+        element:<Upadate></Upadate>,
+        // loader:({params}) => fetch(`http://localhost:5000/card/${params.id}`)
       }
     ]
   },

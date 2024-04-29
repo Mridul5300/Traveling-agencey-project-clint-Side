@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const AllTouristCard = ({card}) => {
           const{ name, email, cuntryname, spotname, averagecost, season, photo,traveltime,totaVisitors,description,location}=card;
@@ -17,5 +17,9 @@ const AllTouristCard = ({card}) => {
           </div>
      );
 };
+
+AllTouristCard.propTypes = {
+     card: PropTypes.object
+   };
 
 export default AllTouristCard;

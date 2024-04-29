@@ -24,9 +24,9 @@ const NavBar = () => {
      const Navlinks = <>
 
           <li><NavLink to={'/'}>Home</NavLink></li>
-          <li><NavLink to={'all spot'}>All Tourists Spot</NavLink></li>
-          <li><NavLink to={'add Spot'}>Add Tourists Spot</NavLink></li>
-          <li><NavLink to={'my list'}>My List</NavLink></li>
+          <li><NavLink to={'allspot'}>All Tourists Spot</NavLink></li>
+          <li><NavLink to={'addSpot'}>Add Tourists Spot</NavLink></li>
+          <li><NavLink to={'mylist'}>My List</NavLink></li>
           {/* <li><NavLink to={'register'}>Register</NavLink></li> */}
 
 
