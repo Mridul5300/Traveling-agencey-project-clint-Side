@@ -9,6 +9,7 @@ import Login from "../Component/Login/Login";
 import Error from "../Component/Error/Error";
 import Upadate from "../Component/MyList/Upadate";
 import PrivetRoute from "../Component/Privet Route/PrivetRoute";
+import CardDetail from "../Component/CardDetails/CardDetail";
 
 
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path:'/updatedata/:id',
         element:<PrivetRoute><Upadate></Upadate></PrivetRoute>,
         loader:({params}) => fetch(`http://localhost:5000/cards/${params.id}`)
+      },
+      {
+        path:'/carddetail/:id',
+        element:<CardDetail></CardDetail>,
+        loader:({params}) => fetch(`http://localhost:5000/cards/${params.id}`),
       }
     ]
   },
